@@ -1,22 +1,29 @@
 package edu.acmatucf.stemdayapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import edu.acmatucf.stemdayapp.schedule.ISchedule;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
 
+    private Context context;
     private ISchedule schedule;
-
 
     public void setSchedule(ISchedule schedule){
         this.schedule = schedule;
 
         notifyDataSetChanged();
 
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -31,6 +38,14 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
     @Override
     public void onBindViewHolder(ScheduleViewHolder holder, int position){
         holder.setScheduleItem(schedule.get(position));
+        TextView mTextView = (TextView) holder.itemView.findViewById(R.id.scheduleTextView);
+        mTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MapsActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
