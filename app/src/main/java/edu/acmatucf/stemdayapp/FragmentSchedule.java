@@ -32,7 +32,7 @@ public class FragmentSchedule extends Fragment {
 
         //Set up recyclerview
         scheduleAdapter = new ScheduleAdapter();
-        scheduleAdapter.setContext(this.getActivity().getApplicationContext());
+        scheduleAdapter.setContext(this.getActivity());
         broadcastManager = LocalBroadcastManager.getInstance(getActivity());
         scheduleLoadedListener = new ScheduleLoadedListener();
 
