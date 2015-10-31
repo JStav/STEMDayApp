@@ -36,14 +36,17 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ScheduleViewHolder holder, int position){
+    public void onBindViewHolder(ScheduleViewHolder holder, final int position){
         holder.setScheduleItem(schedule.get(position));
         TextView mTextView = (TextView) holder.itemView.findViewById(R.id.scheduleTextView);
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MapsActivity.class);
-                context.startActivity(intent);
+
+//                ScheduleItem mScheduleItem = schedule.get(position);
+//                Intent intent = new Intent(context, MapsActivity.class);
+//                intent.putExtra("ScheduleItem", mScheduleItem);
+//                context.startActivity(intent);
             }
         });
     }

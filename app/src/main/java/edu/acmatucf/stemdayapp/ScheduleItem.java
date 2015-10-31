@@ -1,11 +1,15 @@
 package edu.acmatucf.stemdayapp;
 
-public class ScheduleItem {
+import java.io.Serializable;
+
+public class ScheduleItem implements Serializable {
 
     private final long startDate;
     private final long endDate;
     private final String title;
     private final String location;
+    //private final double lat;
+    //private final double lng;
 
     public ScheduleItem(long startDate, long endDate, String title, String location) {
         this.startDate = startDate;
@@ -29,4 +33,12 @@ public class ScheduleItem {
     public String getLocation() {
         return location;
     }
+
+//    public double getLat() {
+//        return lat;
+//    }
+//
+//    public double getLng() {
+//        return lng;
+//    }
 }
